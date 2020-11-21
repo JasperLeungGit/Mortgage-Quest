@@ -7,13 +7,11 @@ export const Form = () => {
 
   const [fields, setFields] = useState({
     amnt: 0,
-    amortY: 5,
-    amortM: 0,
-    value: 150,
-    interest: 2.22,
+    amortization: 150,
+    interestRate: 2.22,
+    frequency: "Monthly",
     interestType: "fixed",
-    interestTermY: 25,
-    interestTermM: 25,
+    interestTerm: 0,
   });
   const handleSubmit = () => {};
 
@@ -33,12 +31,6 @@ export const Form = () => {
     });
     document.getElementById(event.target.id).classList.remove("is-danger");
   };
-  const sliderChange = (e) => {
-    setFields({
-      ...fields,
-      value: e.target.value,
-    });
-  };
   return (
     <div className="flex-wrapper">
       <section>
@@ -46,8 +38,8 @@ export const Form = () => {
           {/* <FormErrors formerrors={fields.errors}> */}
           <form onSubmit={handleSubmit}>
             <div className="field">
-              <label className="label">Mortgage Amount ($):</label>
-              <p className="control  has-icons-left">
+              <label className="label">Mortgage Amount:</label>
+              <p className="control has-icons-left">
                 <input
                   className="input"
                   type="number"
@@ -57,62 +49,34 @@ export const Form = () => {
                   onChange={onInputChange}
                 />
                 <span className="icon is-small is-left">
-                  <i className="fas fa-lock"></i>
+                  <i className="fas fa-dollar-sign"></i>
                 </span>
               </p>
             </div>
 
             <div className="field">
               <label className="label">Amortization Period:</label>
-
-              {/* <div class="control">
-                <div class="select">
-                  <select>
-                    <option value="0">0 Years</option>
-                    <option value="1">1 Years</option>
-                    <option value="2">2 Years</option>
-                    <option value="3">3 Years</option>
-                    <option value="4">4 Years</option>
-                    <option value="5">5 Years</option>
-                    <option value="6">6 Years</option>
-                    <option value="7">7 Years</option>
-                    <option value="8">8 Years</option>
-                    <option value="9">9 Years</option>
-                    <option value="10">10 Years</option>
-                    <option value="11">11 Years</option>
-                    <option value="12">12 Years</option>
-                    <option value="13">13 Years</option>
-                    <option value="14">14 Years</option>
-                    <option value="14">15 Years</option>
-                    <option value="14">16 Years</option>
-                    <option value="14">17 Years</option>
-                    <option value="14">18 Years</option>
-                    <option value="14">19 Years</option>
-                    <option value="14">14 Years</option>
-                  </select>
-                </div>
-              </div> */}
               <div className="slider">
                 <input
                   id="amortization"
                   type="range"
                   min="0"
                   max="300"
-                  value={fields.value}
-                  onChange={sliderChange}
+                  value={fields.amortization}
+                  onChange={onInputChange}
                 />
                 <p className="slider-title">
-                  {Math.floor(fields.value / 12)} Years {fields.value % 12}{" "}
-                  Months{" "}
+                  {Math.floor(fields.amortization / 12)} Years{" "}
+                  {fields.amortization % 12} Months{" "}
                 </p>
               </div>
             </div>
 
-            <div className="field ">
+            <div className="field frequency">
               <label className="label">Payment Frequency:</label>
               <div className="control">
                 <div className="select">
-                  <select>
+                  <select id="frequency" onChange={onInputChange}>
                     <option value="12">Monthly</option>
                     <option value="24">Semi-Monthly</option>
                     <option value="6">Bi-Monthly</option>
@@ -128,27 +92,11 @@ export const Form = () => {
               </div>
             </div>
 
-            <div className="field">
-              <label className="label">Interest Rate (%):</label>
-              <p className="control has-icons-left">
-                <input
-                  className="input"
-                  type="number"
-                  id="interest"
-                  value={fields.interest}
-                  onChange={onInputChange}
-                />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-lock"></i>
-                </span>
-              </p>
-            </div>
-
-            <div className="field">
+            <div className="field interest">
               <label className="label">Interest Type:</label>
-              <div className="control">
+              <div className="control  has-text-centered">
                 <div className="select">
-                  <select>
+                  <select id="interestType" onChange={onInputChange}>
                     <option value="fixed">Fixed</option>
                     <option value="variable">Variable</option>
                   </select>
@@ -156,28 +104,44 @@ export const Form = () => {
               </div>
             </div>
 
+            <div className="field interest">
+              <label className="label">Interest Rate:</label>
+              <p className="control has-icons-right">
+                <input
+                  className="input"
+                  type="number"
+                  id="interestRate"
+                  value={fields.interest}
+                  onChange={onInputChange}
+                />
+                <span className="icon is-small is-right">
+                  <i className="fas fa-percent"></i>
+                </span>
+              </p>
+            </div>
+
             <div className="field">
               <label className="label">Interest Term:</label>
               <div className="slider">
                 <input
-                  id="Intrest Term"
+                  id="interestTerm"
                   type="range"
                   min="0"
                   max="300"
-                  value={fields.value}
-                  onChange={sliderChange}
+                  value={fields.interestTerm}
+                  onChange={onInputChange}
                 />
                 <p className="slider-title">
-                  {Math.floor(fields.value / 12)} Years {fields.value % 12}{" "}
-                  Months{" "}
+                  {Math.floor(fields.interestTerm / 12)} Years{" "}
+                  {fields.interestTerm % 12} Months{" "}
                 </p>
               </div>
             </div>
 
             <div className="field">
-              <p className="control">
+              <div className="control has-text-centered">
                 <button className="button is-dark">Calculate</button>
-              </p>
+              </div>
             </div>
           </form>
         </div>

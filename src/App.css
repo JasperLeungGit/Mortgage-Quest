@@ -28,8 +28,8 @@
   margin-left:24vw;
 }
 #enemy{
-  height:200px;
-  width:200px;
+  height: 200px;
+  width: 200px;
   margin-left:36vw;
 }
 h1{
@@ -39,7 +39,9 @@ h1{
 h2{
     font-size: 1.5 em;
 }
-
+button{
+    margin: auto;
+}
 body{
     visibility: visible !important;
     background-color: #fff3d4;
@@ -48,8 +50,18 @@ body{
 .container{
     width: 50%;
   }
-
-#amortization{
+.interest{
+    width: 50%;
+    display: inline-block;
+    padding: auto;
+}
+.frequency{
+    text-align: center;
+}
+label{
+    text-align: center;
+}
+#amortization, #interestTerm{
     width: 100%;
     opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
     -webkit-transition: .2s; /* 0.2 seconds transition on hover */
@@ -63,7 +75,7 @@ body{
   width: 100%; /* Full-width */
   height: 25px; /* Specified height */
   outline: none; /* Remove outline */
-  margin-bottom: 1em;
+  margin-bottom: 2em;
  
 }
 .slider-title{
@@ -71,7 +83,7 @@ body{
     font-weight: 500;
 }
 /* Mouse-over effects */
-.amortization:hover {
+.amortization:hover, #interestTerm:hover {
   opacity: 1; /* Fully shown on mouse-over */
 }
 
@@ -91,9 +103,25 @@ body{
      /* Green background */
     cursor: pointer; /* Cursor on hover */
 }
-@media only screen and (max-width: 900px) {
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+@media only screen and (max-width: 600px) {
     .container{
-      width: 50%;
+      width: 95%;
+    }
+    .interest{
+        width: 100%;
     }
   }
 
