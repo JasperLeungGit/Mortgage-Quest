@@ -8,7 +8,10 @@ const Header = () => {
         href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap"
         rel="stylesheet"
       ></link>
-      <img id="header-image" src="images/monster.png"></img>
+      <img
+        id="header-image"
+        src="https://static.thenounproject.com/png/1561390-200.png"
+      ></img>
       <h1 id="header-text">Mortgage Boss</h1>
     </div>
   );

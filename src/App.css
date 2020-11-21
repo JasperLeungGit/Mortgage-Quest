@@ -12,11 +12,25 @@
   text-align: center;
 }
 #footer{
+  margin-top:7vh;
 }
 #footer-text{
   font-family: Lato;
     font-size: 2vh;
     text-align: center;
+}
+#bossfight{
+  margin-top:5vh;
+}
+#hero{
+  height:200px;
+  width:200px;
+  margin-left:24vw;
+}
+#enemy{
+  height:200px;
+  width:200px;
+  margin-left:36vw;
 }
 h1{
     font-size: 2 em;
@@ -34,11 +48,12 @@ body{
 .container{
     width: 50%;
   }
-.amortization{
-    width: 50%;
-}
-.slidecontainer {
-  width: 100%; /* Width of the outside container */
+
+#amortization{
+    width: 100%;
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
 }
 
 /* The slider itself */
@@ -47,15 +62,16 @@ body{
   appearance: none;
   width: 100%; /* Full-width */
   height: 25px; /* Specified height */
-  background: #d3d3d3; /* Grey background */
   outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-  transition: opacity .2s;
+  margin-bottom: 1em;
+ 
 }
-
+.slider-title{
+    text-align: center;
+    font-weight: 500;
+}
 /* Mouse-over effects */
-.slider:hover {
+.amortization:hover {
   opacity: 1; /* Fully shown on mouse-over */
 }
 
@@ -70,10 +86,10 @@ body{
 }
 
 .slider::-moz-range-thumb {
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #4CAF50; /* Green background */
-  cursor: pointer; /* Cursor on hover */
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+     /* Green background */
+    cursor: pointer; /* Cursor on hover */
 }
 @media only screen and (max-width: 900px) {
     .container{

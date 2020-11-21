@@ -9,6 +9,7 @@ export const Form = () => {
     amnt: 0,
     amortY: 5,
     amortM: 0,
+    value: 150,
     interest: 2.22,
     interestType: "fixed",
     interestTermY: 25,
@@ -31,6 +32,12 @@ export const Form = () => {
       [event.target.id]: event.target.value,
     });
     document.getElementById(event.target.id).classList.remove("is-danger");
+  };
+  const sliderChange = (e) => {
+    setFields({
+      ...fields,
+      value: e.target.value,
+    });
   };
   return (
     <div className="flex-wrapper">
@@ -55,8 +62,9 @@ export const Form = () => {
               </p>
             </div>
 
-            <div className="field amortization">
+            <div className="field">
               <label className="label">Amortization Period:</label>
+
               {/* <div class="control">
                 <div class="select">
                   <select>
@@ -84,15 +92,19 @@ export const Form = () => {
                   </select>
                 </div>
               </div> */}
-              <div className="slidecontainer">
+              <div className="slider">
                 <input
+                  id="amortization"
                   type="range"
                   min="0"
-                  max="25"
-                  value="25"
-                  className="slider"
-                  id="myRange"
+                  max="300"
+                  value={fields.value}
+                  onChange={sliderChange}
                 />
+                <p className="slider-title">
+                  {Math.floor(fields.value / 12)} Years {fields.value % 12}{" "}
+                  Months{" "}
+                </p>
               </div>
             </div>
 
@@ -146,12 +158,19 @@ export const Form = () => {
 
             <div className="field">
               <label className="label">Interest Term:</label>
-              <div className="control">
-                <div className="select">
-                  <select>
-                    <option value="0">0 years</option>
-                  </select>
-                </div>
+              <div className="slider">
+                <input
+                  id="Intrest Term"
+                  type="range"
+                  min="0"
+                  max="300"
+                  value={fields.value}
+                  onChange={sliderChange}
+                />
+                <p className="slider-title">
+                  {Math.floor(fields.value / 12)} Years {fields.value % 12}{" "}
+                  Months{" "}
+                </p>
               </div>
             </div>
 
