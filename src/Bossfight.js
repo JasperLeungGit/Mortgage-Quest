@@ -3,7 +3,6 @@ import { GlobalContext } from "./context/GlobalState";
 import "./App.css";
 
 const Bossfight = () => {
-  <link rel="import" href="x-gif.html" />;
   const amnt = 0;
   const [eGif, setEGif] = useState([]);
   //   const {
@@ -37,10 +36,11 @@ const Bossfight = () => {
       );
     }
   }, [amnt]);
+
   return (
     <div id="bossfight">
-      <video width="320" height="240" controls>
-        <source src="./images/hero.mp4" />
+      <video width="320" height="240" autoPlay loop>
+        <source src="../public/images/hero.mp4" type="video/mp4" />
       </video>
       <img id="enemy" src={eGif} border="0" alt="animated-monster-image-0014" />
     </div>
