@@ -1,0 +1,42 @@
+Project Idea (Jasper):
+Here's our front end web application+
+
+*video title*  Hack-Western-7-{YourProjectName}
+
+
+Our project is Mortgage Quest, a mortgage calculator which makes every mortgage calculation an adventure.
+It is a web application which visualizes each mortgage payment the user makes as a 'boss fight'.
+
+For example, if we make a mortgage payment of...
+(Show demo)
+We can calculate the required mortgage payment. Then a boss fight will be shown, simulating that payment.
+(show full boss fight)
+If we change the mortgage amount, the boss can change too based on the mortgage. You can also change the speed of the hero's attack by
+changing the payment frequency. Notice how none of the 'boss fight' actually interferes with the calculated result, so you can calculate mortgage
+just as efficiently as you would a regular calculator. If anything, it would be faster, since the values used
+for calculation are changed dynamically.
+
+Why did you build your project?
+
+We built our project to try and make mandatory, mundane financial tasks (a calculating mortgage payments) more fun 
+for end users of banks (such as RBC!). We wanted to make a web application which could easily be integrated within the 
+banks' existing services, so for example, within RBC's mortgage payment calculator. 
+
+How does it work?
+
+We read the values of the form, and dynamically change the values of the boss fight, such as the boss, the 
+player's attack speed, and the damage being dealt. We calculate the payments needed using a mortgage formula,
+and the values used for that are again dynamically taken from the form input. All of this is done using React.
+
+What technologies did you use?
+We decided to make our app serverless and hosted on Google Cloud Patform. 
+We developed with HTML5, CSS3, JavaScript and ReactJS along with the Context API.
+
+What can be done to improve your project?
+Some improvements would be to add a more detailed mortgage breakdown and maybe some graphical representations of the interest.
+
+
+
+
+Who is on your team
+This product was made by Mike Li, Jasper Leung, Alvin Chan, and myself, Matthew Paulin.

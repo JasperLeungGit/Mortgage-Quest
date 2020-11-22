@@ -136,11 +136,6 @@ const Bossfight = () => {
     return () => clearInterval(interval);
   });
 
-  const killBoss = () => {
-    console.log("he;;da");
-    setHealth(health - payment);
-  };
-
   return (
     <div id="bossfight" style={{ display: state.someFunc }}>
       <link
@@ -175,7 +170,6 @@ const Bossfight = () => {
         iterations={calcIterations()}
         payment={payment}
         speed={calcSpeed()}
-        onDamage={killBoss}
       />
 
       <h1 id="payment-text">{boss}</h1>

@@ -9,7 +9,6 @@ class DamageNumbers extends Component {
     this.setState({
       animationFinished: false,
     });
-    this.props.onDamage();
   };
 
   onAnimationEnd = () => {
