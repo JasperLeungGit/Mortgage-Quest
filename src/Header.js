@@ -11,6 +11,7 @@ const Header = () => {
       <img
         id="header-image"
         src="https://static.thenounproject.com/png/1561390-200.png"
+        alt="logo"
       ></img>
       <h1 id="header-text">Mortgage Quest</h1>
     </div>

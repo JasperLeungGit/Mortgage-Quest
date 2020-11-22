@@ -84,7 +84,7 @@ const Bossfight = () => {
         setFreq("weekly");
     }
 
-    if (health <= 0) {
+    if (health <= 0 && fought === false) {
       setEGif(
         "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
       );
@@ -103,9 +103,30 @@ const Bossfight = () => {
     }
   }, [health]);
 
+  // const calcSpeed = () => {
+  //   if (payment > 0) return (1 / state.frequency) * 10;
+  //   return 0;
+  // };
+
   const calcSpeed = () => {
-    if (payment > 0) return (1 / state.frequency) * 8;
+    if (payment > 0) {
+      switch (state.frequency) {
+        case "12":
+          return 0.8;
+        case "24":
+          return 0.48;
+        case "6":
+          return 1.6;
+        default:
+          return 0.32;
+      }
+    }
     return 0;
+  };
+
+  const calcIterations = () => {
+    if (health > 0) return "infinite";
+    return "0";
   };
 
   useEffect(() => {
@@ -114,6 +135,10 @@ const Bossfight = () => {
     }, calcSpeed() * 1000);
     return () => clearInterval(interval);
   });
+
+  const killBoss = () => {
+    setHealth(health - payment);
+  };
 
   return (
     <div id="bossfight" style={{ display: state.someFunc }}>
@@ -146,9 +171,10 @@ const Bossfight = () => {
       />
 
       <DamageNumbers
-        iterations={Math.floor((state.amortization * state.frequency) / 12)}
+        iterations={calcIterations()}
         payment={payment}
         speed={calcSpeed()}
+        onDamage={killBoss}
       />
 
       <h1 id="payment-text">{boss}</h1>

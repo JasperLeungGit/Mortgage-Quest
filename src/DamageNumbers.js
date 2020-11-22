@@ -2,39 +2,33 @@ import React, { Component } from "react";
 
 class DamageNumbers extends Component {
   state = {
-    classNames: "",
     animationFinished: true,
-  };
-
-  showDamage = () => {
-    const { classNames } = this.state;
-    this.setState({ classNames: classNames ? "" : "animation" });
-    console.log(this.props.iterations);
   };
 
   onAnimationStart = () => {
     this.setState({
       animationFinished: false,
     });
+    this.props.onDamage();
   };
 
   onAnimationEnd = () => {
     this.setState({
       animationFinished: true,
-      classNames: "",
     });
   };
 
   render() {
     const { animationFinished } = this.state;
     let displayState = animationFinished ? "hidden" : "visible";
+    const { speed, iterations } = this.props;
 
     return (
       <div>
         <h1
           style={{
             visibility: displayState,
-            animation: `damageAnimation ${this.props.speed}s ${this.props.iterations}`,
+            animation: `damageAnimation ${speed}s ${iterations}`,
           }}
           className={`damage-text ${this.state.classNames}`}
           onAnimationEnd={this.onAnimationEnd}
