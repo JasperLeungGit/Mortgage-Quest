@@ -5,6 +5,7 @@ import "./App.css";
 const Bossfight = () => {
   const amnt = 0;
   const [eGif, setEGif] = useState([]);
+  const [aSpeed, setASpeed] = useState(0);
   //   const {
   //     amnt,
   //     amortY,
@@ -39,9 +40,12 @@ const Bossfight = () => {
 
   return (
     <div id="bossfight">
-      <video width="320" height="240" autoPlay loop>
-        <source src="../public/images/hero.mp4" type="video/mp4" />
-      </video>
+      <img
+        id="hero"
+        src="https://www.animatedimages.org/data/media/574/animated-monster-image-0075.gif"
+        border="0"
+        alt="animated-monster-image-0075"
+      />
       <img id="enemy" src={eGif} border="0" alt="animated-monster-image-0014" />
     </div>
   );
