@@ -48,13 +48,13 @@ const Bossfight = () => {
     } else if (500000 <= state.amnt) {
       setFought(true);
       setEGif(
-        "https://lh3.googleusercontent.com/proxy/YyRaPhQZEo3UtLzo0BDbBfV-vMtSI4uKdbzovv6VuCfJZkXp_SDQeQwZKJ95BBoLFcL0Ek-aPrZV2hscZCk1QHUWAw"
+        "https://i.pinimg.com/originals/7d/5d/04/7d5d04d274912599ab9f587e6b47a5a4.gif"
       );
       setBoss("BOSS LEVEL: HARD (>= $500000)");
     } else {
       setFought(true);
       setEGif(
-        "https://i.pinimg.com/originals/7d/5d/04/7d5d04d274912599ab9f587e6b47a5a4.gif"
+        "https://www.animatedimages.org/data/media/574/animated-monster-image-0014.gif"
       );
       setBoss("BOSS LEVEL: NORMAL (< $500000)");
     }
@@ -137,6 +137,7 @@ const Bossfight = () => {
   });
 
   const killBoss = () => {
+    console.log("he;;da");
     setHealth(health - payment);
   };
 
