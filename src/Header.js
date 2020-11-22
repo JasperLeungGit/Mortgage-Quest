@@ -12,7 +12,7 @@ const Header = () => {
         id="header-image"
         src="https://static.thenounproject.com/png/1561390-200.png"
       ></img>
-      <h1 id="header-text">Mortgage Boss</h1>
+      <h1 id="header-text">Mortgage Quest</h1>
     </div>
   );
 };

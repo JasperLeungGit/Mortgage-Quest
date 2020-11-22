@@ -13,7 +13,10 @@ export const Form = () => {
     interestType: "fixed",
     interestTerm: 0,
   });
-  const handleSubmit = () => {};
+
+  const handleSubmit = () => {
+    setAmnt(2);
+  };
 
   const clearErrorState = () => {
     setFields({
