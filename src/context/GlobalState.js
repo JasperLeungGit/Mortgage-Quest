@@ -1,43 +1,28 @@
 import React, { createContext, useReducer } from "react";
-import AppReducer from "./AppReducer";
 
 const initialState = {
   amnt: 0,
-  amortY: 5,
-  amortM: 0,
-  interest: 2.22,
+  amortization: 150,
+  interestRate: 2.22,
+  frequency: "monthly",
   interestType: "fixed",
-  interestTermY: 25,
-  interestTermM: 25,
+  interestTerm: 0,
 };
 
 export const GlobalContext = createContext(initialState);
+export const DispatchStateContext = createContext(undefined);
 
 export const GlobalProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(AppReducer, initialState);
+  const [state, dispatch] = useReducer(
+    (state, newValue) => ({ ...state, ...newValue }),
+    initialState
+  );
 
-  function setAmnt(name) {
-    dispatch({
-      type: "SET_AMNT",
-      payload: name,
-    });
-  }
-  //func set form fields
   return (
-    //add set form fields func to the value
-    <GlobalContext.Provider
-      value={{
-        amnt: state.amnt,
-        amortY: state.amortY,
-        amortM: state.amortM,
-        interest: state.interest,
-        interestType: state.interestType,
-        interestTermY: state.interestTermY,
-        interestTermM: state.interestTermM,
-        setAmnt,
-      }}
-    >
-      {children}
+    <GlobalContext.Provider value={state}>
+      <DispatchStateContext.Provider value={dispatch}>
+        {children}
+      </DispatchStateContext.Provider>
     </GlobalContext.Provider>
   );
 };
