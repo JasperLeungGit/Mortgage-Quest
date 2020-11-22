@@ -11,24 +11,46 @@
   color:#58a6b0;
   text-align: center;
 }
+#result-text{
+  font-family: Lato;
+  font-size: 4vh;
+  color:#58a6b0;
+  text-align: center;
+}
 #footer{
-  margin-top:7vh;
+  margin-top:15vh;
 }
 #footer-text{
   font-family: Lato;
     font-size: 2vh;
     text-align: center;
 }
+#damage-text{
+    font-family: Bebas Neue;
+    color: red;
+    font-size: 5vh;
+    margin-top: -20vh;
+}
+#payment-text{
+  font-family: Bebas Neue;
+  font-size: 5vh;
+  text-align: center;
+  margin-top: 10vh;
+}
 #bossfight{
   margin-top:36vh;
 }
+
 #hero{
   width:20vw;
   margin-left:33vw;
+  float:left;
+  margin-top:10vh;
 }
 #enemy{
   width: 20vw;
-  margin-left:-8vw;
+  margin-left:-10vw;
+  margin-top:10vh;
 }
 h1{
     font-size: 2 em;
@@ -121,5 +143,19 @@ input[type=number] {
     .interest{
         width: 100%;
     }
+  }
+
+  .progress {
+    width: 60vmin;
+  }
+  
+  .progress::-webkit-progress-bar {
+    background-color:#fa8b87;
+    text-align: center;
+  }
+  
+  .progress::-webkit-progress-value {
+    background-color: #a7fca8 !important;
+    text-align: center;
   }
 

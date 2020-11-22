@@ -6,7 +6,7 @@ const initialState = {
   interestRate: 2.22,
   frequency: "monthly",
   interestType: "fixed",
-  interestTerm: 0,
+  interestTerm: 150,
 };
 
 export const GlobalContext = createContext(initialState);

@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-// import FormErrors from "./FormErrors";
 import { GlobalContext } from "../context/GlobalState";
 import { DispatchStateContext } from "../context/GlobalState";
 
@@ -66,7 +65,7 @@ export const Form = () => {
                 <input
                   id="amortization"
                   type="range"
-                  min="0"
+                  min="1"
                   max="300"
                   value={state.amortization}
                   onChange={onInputChange}
@@ -132,7 +131,7 @@ export const Form = () => {
                 <input
                   id="interestTerm"
                   type="range"
-                  min="0"
+                  min="1"
                   max="300"
                   value={state.interestTerm}
                   onChange={onInputChange}

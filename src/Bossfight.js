@@ -1,75 +1,104 @@
 import React, { useState, useEffect, useContext } from "react";
 import { GlobalContext } from "./context/GlobalState";
-import "./App.css";
 
 const Bossfight = () => {
-  const amnt = 0; //temp
-  const frequency = "monthly"; // temp
+  const state = useContext(GlobalContext);
   const [eGif, setEGif] = useState([]);
-  const [hGif, setHGif] = useState(0);
+  const [hGif, setHGif] = useState([]);
+  const [payment, setPayment] = useState(0);
+  const [health, setHealth] = useState(state.amnt);
   // const {
   //   amnt,
   //   amortization,
-  //   interestRate,
-  //   frequency,
-  //   interestType,
+  //   state.interestRate,
+  //   state.frequency,
+  //   state.interestType,
   //   interestTerm,
-  //   setAmnt,
-  // } = useContext(GlobalContext);
-
   //     var Payment = amnt * (interest / n) * (1 + interest / n)**(n*amortY) / ((1 + interest / n)**(n*amortY) - 1);
-  useEffect(() => {
-    if (amnt <= 50000) {
-      setEGif(
-        "https://www.animatedimages.org/data/media/574/animated-monster-image-0014.gif"
-      );
-    } else if (50000 < amnt <= 100000) {
-      setEGif(
-        "https://www.animatedimages.org/data/media/574/animated-monster-image-0132.gif"
-      );
-    } else if (100000 < amnt <= 500000) {
-      setEGif(
-        "https://www.animatedimages.org/data/media/574/animated-monster-image-0024.gif"
-      );
-    } else {
-      setEGif(
-        "https://www.animatedimages.org/data/media/574/animated-monster-image-0024.gif"
-      );
-    }
-  }, [amnt]);
 
   useEffect(() => {
-    if (frequency === "monthly") {
-      setHGif(
-        "https://cdn.discordapp.com/attachments/779511824671834112/779900661688958996/knight60.gif"
+    // setPayment(
+    //   (state.amnt * (state.interestRate / state.frequency) * (1 + state.interestRate / state.frequency) ** (state.frequency * amortY)) /
+    //     ((1 + state.interestRate / state.frequency) ** (state.frequency * amortY) - 1)
+    // );
+    setPayment(666420); //temp, delete when formula implemented
+    if (state.amnt >= 2000000) {
+      setEGif(
+        "https://vignette.wikia.nocookie.net/experience-ro/images/3/3a/Naght_Sieger.gif/revision/latest?cb=20170904212615"
       );
-    } else if (frequency === "semimonthly") {
-      setHGif(
-        "https://cdn.discordapp.com/attachments/779511824671834112/779900663164305418/knight100.gif"
+    } else if (1000000 <= state.amnt) {
+      setEGif(
+        "https://www.ckaleb.com/wp-content/uploads/2018/05/bloody_knight.gif"
       );
-    } else if (frequency === "bimonthly") {
-      setHGif(
-        "https://cdn.discordapp.com/attachments/779511824671834112/779900659544883230/knight30.gif"
-      );
-    } else if (frequency === "weekly") {
-      setHGif(
-        "https://cdn.discordapp.com/attachments/779511824671834112/779900665664241674/knight160.gif"
-      );
-    } else if (frequency === "accelerated weekly") {
-      setHGif(
-        "https://cdn.discordapp.com/attachments/779511824671834112/779900667099611136/knight200.gif"
+    } else if (500000 <= state.amnt) {
+      setEGif(
+        "https://lh3.googleusercontent.com/proxy/YyRaPhQZEo3UtLzo0BDbBfV-vMtSI4uKdbzovv6VuCfJZkXp_SDQeQwZKJ95BBoLFcL0Ek-aPrZV2hscZCk1QHUWAw"
       );
     } else {
-      setHGif(
-        "https://cdn.discordapp.com/attachments/779511824671834112/779900664372920320/knight130.gif"
+      setEGif(
+        "https://i.pinimg.com/originals/7d/5d/04/7d5d04d274912599ab9f587e6b47a5a4.gif"
       );
     }
-  }, [frequency]);
+
+    switch (state.frequency) {
+      case "monthly":
+        setHGif(
+          "https://cdn.discordapp.com/attachments/779511824671834112/779900661688958996/knight60.gif"
+        );
+        break;
+      case "semimonthly":
+        setHGif(
+          "https://cdn.discordapp.com/attachments/779511824671834112/779900663164305418/knight100.gif"
+        );
+        break;
+      case "bimonthly":
+        setHGif(
+          "https://cdn.discordapp.com/attachments/779511824671834112/779900659544883230/knight30.gif"
+        );
+        break;
+      case "weekly":
+        setHGif(
+          "https://cdn.discordapp.com/attachments/779511824671834112/779900665664241674/knight160.gif"
+        );
+        break;
+      case "accelerated weekly":
+        setHGif(
+          "https://cdn.discordapp.com/attachments/779511824671834112/779900667099611136/knight200.gif"
+        );
+        break;
+      default:
+        setHGif(
+          "https://cdn.discordapp.com/attachments/779511824671834112/779900664372920320/knight130.gif"
+        );
+    }
+  }, [state]);
+
+  const debugMe = () => {
+    console.log(health);
+  };
 
   return (
     <div id="bossfight">
-      <img id="hero" src={hGif} border="0" alt="animated-monster-image-0075" />
-      <img id="enemy" src={eGif} border="0" alt="animated-monster-image-0014" />
+      <h1 id="result-text">
+        Your {state.frequency} payment will be ${payment}
+      </h1>
+      <progress
+        className="progress"
+        // value={health}
+        value={state.amnt / 2}
+        max={state.amnt}
+      />
+      <img id="hero" src={hGif} border="0" alt="animated-monster-0075" />
+      <img id="enemy" src={eGif} border="0" alt="animated-monster-0014" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+        rel="stylesheet"
+      ></link>
+      <h1 id="damage-text">-${payment}</h1>
+      <h1 id="payment-text">Payment x completed!</h1>
+      <button id="bossButton" onClick={debugMe}>
+        HIT ME
+      </button>
     </div>
   );
 };
