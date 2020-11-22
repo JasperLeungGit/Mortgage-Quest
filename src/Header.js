@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div id="header">
       <link
-        href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
         rel="stylesheet"
       ></link>
       <img

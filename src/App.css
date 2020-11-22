@@ -6,13 +6,13 @@
   text-align: center;
 }
 #header-text{
-  font-family: Lato;
+  font-family: Bebas Neue;
   font-size: 9vh;
   color:#58a6b0;
   text-align: center;
 }
 #result-text{
-  font-family: Lato;
+  font-family: Bebas Neue;
   font-size: 4vh;
   color:#58a6b0;
   text-align: center;
@@ -25,17 +25,18 @@
     font-size: 2vh;
     text-align: center;
 }
-#damage-text{
-    font-family: Bebas Neue;
-    color: red;
-    font-size: 5vh;
-    margin-top: -20vh;
-}
 #payment-text{
   font-family: Bebas Neue;
   font-size: 5vh;
   text-align: center;
-  margin-top: 10vh;
+  margin-top: 15vh;
+  margin-bottom:5vh;
+}
+#total-text{
+  font-family: Bebas Neue;
+  font-size: 5vh;
+  text-align: center;
+  margin-top: 2vh;
 }
 #bossfight{
   margin-top:36vh;
@@ -59,8 +60,10 @@ h1{
 h2{
     font-size: 1.5 em;
 }
-button{
-    margin: auto;
+.button{
+  box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
 }
 body{
     visibility: visible !important;
@@ -80,6 +83,13 @@ body{
 }
 label{
     text-align: center;
+}
+a{
+  color: white;
+  padding: 1.5em 1em;
+}
+a:hover{
+  color: white;
 }
 #amortization, #interestTerm{
     width: 100%;
@@ -136,7 +146,35 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-@media only screen and (max-width: 600px) {
+
+
+  .progress {
+    width: 50%;
+    min-width: 5em;
+    margin: 0px auto;
+  }
+  
+  .progress::-webkit-progress-bar {
+    background-color:#fa8b87;
+  }
+  
+  .progress::-webkit-progress-value {
+    background-color: #a7fca8 !important;
+  }
+  
+  .damage-text{
+    font-family: Bebas Neue;
+    color: red;
+    font-size: 5vh;
+    margin-top: -20vh;
+}
+
+  @keyframes damageAnimation {
+    100% {
+      transform: translate(0, -300px);
+    }
+  }
+  @media only screen and (max-width: 600px) {
     .container{
       width: 95%;
     }
@@ -144,18 +182,3 @@ input[type=number] {
         width: 100%;
     }
   }
-
-  .progress {
-    width: 60vmin;
-  }
-  
-  .progress::-webkit-progress-bar {
-    background-color:#fa8b87;
-    text-align: center;
-  }
-  
-  .progress::-webkit-progress-value {
-    background-color: #a7fca8 !important;
-    text-align: center;
-  }
-

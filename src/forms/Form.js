@@ -9,39 +9,21 @@ const useGlobalState = () => [
 
 export const Form = () => {
   const [state, dispatch] = useGlobalState();
-  //   const [fields, setFields] = useState({
-  //     amnt: 0,
-  //     amortization: 150,
-  //     interestRate: 2.22,
-  //     frequency: "Monthly",
-  //     interestType: "fixed",
-  //     interestTerm: 0,
-  //   });
 
-  const handleSubmit = () => {};
-
-  //   const clearErrorState = () => {
-  //     setFields({
-  //       ...fields,
-  //       errors: {
-  //         blankfield: false,
-  //       },
-  //     });
-  //   };
+  // const handleSubmit = () => {};
 
   const onInputChange = (event) => {
     dispatch({
       ...state,
       [event.target.id]: event.target.value,
     });
-    document.getElementById(event.target.id).classList.remove("is-danger");
   };
   return (
     <div className="flex-wrapper">
       <section>
         <div className="container">
           {/* <FormErrors formerrors={fields.errors}> */}
-          <form onSubmit={handleSubmit}>
+          <form>
             <div className="field">
               <label className="label">Mortgage Amount:</label>
               <p className="control has-icons-left">
@@ -81,17 +63,15 @@ export const Form = () => {
               <label className="label">Payment Frequency:</label>
               <div className="control">
                 <div className="select">
-                  <select id="frequency" onChange={onInputChange}>
-                    <option value="monthly">Monthly</option>
-                    <option value="semimonthly">Semi-Monthly</option>
-                    <option value="bimonthly">Bi-Monthly</option>
-                    <option value="weekly">Weekly</option>
-                    <option value="accelerated biweekly">
-                      Accelerated Bi-Weekly
-                    </option>
-                    <option value="accelerated weekly">
-                      Accelerated Weekly
-                    </option>
+                  <select
+                    id="frequency"
+                    onChange={onInputChange}
+                    defaultValue="12"
+                  >
+                    <option value="12">Monthly</option>
+                    <option value="24">Semi-Monthly</option>
+                    <option value="6">Bi-Monthly</option>
+                    <option value="52">Weekly</option>
                   </select>
                 </div>
               </div>
@@ -145,7 +125,14 @@ export const Form = () => {
 
             <div className="field">
               <div className="control has-text-centered">
-                <button className="button is-dark">Calculate</button>
+                <button
+                  className="button is-dark"
+                  onClick={() => {
+                    state.health = state.amnt;
+                  }}
+                >
+                  <a href="#bossfight">Calculate payment!</a>
+                </button>
               </div>
             </div>
           </form>

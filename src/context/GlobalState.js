@@ -4,7 +4,7 @@ const initialState = {
   amnt: 0,
   amortization: 150,
   interestRate: 2.22,
-  frequency: "monthly",
+  frequency: "12",
   interestType: "fixed",
   interestTerm: 150,
 };

@@ -11,6 +11,7 @@ const Footer = () => {
         ></link>
         <h1 id="footer-text">
           Created by Matthew Paulin, Mike Li, Jasper Leung, and Alvin Chan
+          during Hack Western 7.
         </h1>
       </div>
     </div>
